@@ -1,0 +1,6 @@
+@DistributedLock_HostAddress = http://localhost:5082
+
+GET {{DistributedLock_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
