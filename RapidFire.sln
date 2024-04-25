@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedLock", "1 - Services\DistributedLock\DistributedLock.csproj", "{C5C7881B-45D2-424D-A720-DBE7D0F1C8FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCheck", "1 - Services\HealthCheck\HealthCheck.csproj", "{AE041085-2A23-4E57-8613-0DC91BD4C8A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,11 +23,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C5C7881B-45D2-424D-A720-DBE7D0F1C8FF} = {1C84CDD7-84AF-4189-9AD8-4FFEFFCFBADE}
+		{AE041085-2A23-4E57-8613-0DC91BD4C8A1} = {1C84CDD7-84AF-4189-9AD8-4FFEFFCFBADE}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C5C7881B-45D2-424D-A720-DBE7D0F1C8FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C5C7881B-45D2-424D-A720-DBE7D0F1C8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5C7881B-45D2-424D-A720-DBE7D0F1C8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5C7881B-45D2-424D-A720-DBE7D0F1C8FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE041085-2A23-4E57-8613-0DC91BD4C8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE041085-2A23-4E57-8613-0DC91BD4C8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE041085-2A23-4E57-8613-0DC91BD4C8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE041085-2A23-4E57-8613-0DC91BD4C8A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

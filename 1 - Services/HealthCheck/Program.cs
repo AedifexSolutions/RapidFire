@@ -1,4 +1,4 @@
-namespace DistributedLock;
+namespace HealthCheck;
 
 public class Program
 {
@@ -25,7 +25,7 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
+       
         app.Run();
     }
 }
