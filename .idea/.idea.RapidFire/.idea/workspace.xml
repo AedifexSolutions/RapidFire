@@ -13,13 +13,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e911f145-3311-45e0-9174-082bd9c920d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/2 - Interfaces/IDataAccess/IDataAccess.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2 - Interfaces/ILockDataAccess/ILockDataAccess.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4 - Data Access/DataModel/DataModel.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4 - Data Access/DataModel/DistributedLock.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4 - Data Access/LockDataAccess/DataLockDBContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4 - Data Access/LockDataAccess/LockDataAccess.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2 - Interfaces/ILockDataAccess/IDataLockDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3 - Common/DTO/DTO.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3 - Common/DTO/DataAccess.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RapidFire/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RapidFire/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1 - Services/DistributedLock/DistributedLock.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/1 - Services/DistributedLock/DistributedLock.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1 - Services/DistributedLock/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/1 - Services/DistributedLock/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1 - Services/DistributedLock/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/1 - Services/DistributedLock/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2 - Interfaces/ILockDataAccess/ILockDataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/2 - Interfaces/ILockDataAccess/ILockDataAccess.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4 - Data Access/LockDataAccess/DataLockDBContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/4 - Data Access/LockDataAccess/DataLockDBContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RapidFire.sln" beforeDir="false" afterPath="$PROJECT_DIR$/RapidFire.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +44,7 @@
   }
 }</component>
   <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="7da6c0c3-4219-42f6-99ff-f160e1ec5a58" />
+    <option name="defaultAccountId" value="fd9d945c-3b3c-46df-bbfe-8f9ee500328f" />
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
@@ -51,8 +53,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///DataLockDBContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectColorInfo">{
@@ -69,7 +70,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.RapidFireDashboard: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.RapidFireDashboard: http.executor&quot;: &quot;Debug&quot;,
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -80,7 +81,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -168,6 +169,17 @@
       <workItem from="1714111091222" duration="688000" />
       <workItem from="1714111797416" duration="448000" />
       <workItem from="1714112271064" duration="38000" />
+      <workItem from="1714112322955" duration="363000" />
+      <workItem from="1714112705702" duration="161000" />
+      <workItem from="1714112877242" duration="1067000" />
+      <workItem from="1714116722219" duration="386000" />
+      <workItem from="1714117377685" duration="30000" />
+      <workItem from="1714117415940" duration="21000" />
+      <workItem from="1714117471615" duration="58000" />
+      <workItem from="1714117541939" duration="130000" />
+      <workItem from="1714117690843" duration="46000" />
+      <workItem from="1714117976475" duration="44000" />
+      <workItem from="1714197044783" duration="484000" />
     </task>
     <task id="LOCAL-00001" summary="Add HealthCheck service, remove WeatherForecast from DistributedLock&#10;&#10;Introduced a new HealthCheck service with its own project file and program script. Removed the WeatherForecast class under DistributedLock service as it was not necessary. The HealthCheck service comes with setup for OpenAPI and Swagger for simple API testing.">
       <option name="closed" value="true" />
@@ -209,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714069936804</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update workspace.xml and introduce new data access components&#10;&#10;The project structure has been updated with the addition of several new components concerning data access. A new file, DataModel.csproj, has been created. Similarly, LockDataAccess.csproj, IDataAccess.csproj, and ILockDataAccess.csproj have been established as part of the Data Access strategy. These changes are further reflected in the update of workspace.xml. Further constituents for data handling like DataLockDBContext.cs and DistributedLock.cs in the DataModel have been added.">
+      <option name="closed" value="true" />
+      <created>1714112412096</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714112412096</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +257,8 @@
     <MESSAGE value="Update workspace.xml and enhance feature set&#10;&#10;Workspace.xml has been updated to reflect recent changes in project structure and configuration. Addition of profiles for the RapidFireDashboard has been made in the AutoGeneratedRunConfigurationManager section. Settings for GitHub, ProjectColorInfo, and PropertiesComponent have been updated. Task descriptions are also updated to better represent recent developments." />
     <MESSAGE value="Update workspace.xml and enhance feature set&#10;&#10;This commit updates workspace.xml to reflect changes in project structure and configuration. It adds profiles for RapidFireDashboard in the AutoGeneratedRunConfigurationManager section. The settings for GitHub, ProjectColorInfo, and PropertiesComponent have also been updated, along with better task descriptions." />
     <MESSAGE value="Update workspace.xml and enhance feature set&#10;&#10;This commit includes updates to workspace.xml reflecting changes in project structure and configuration. Profiles were added for RapidFireDashboard in the AutoGeneratedRunConfigurationManager section. Updates were made to the settings for GitHub, ProjectColorInfo, and PropertiesComponent, along with improved task descriptions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml and enhance feature set&#10;&#10;This commit includes updates to workspace.xml reflecting changes in project structure and configuration. Profiles were added for RapidFireDashboard in the AutoGeneratedRunConfigurationManager section. Updates were made to the settings for GitHub, ProjectColorInfo, and PropertiesComponent, along with improved task descriptions." />
+    <MESSAGE value="Update workspace.xml and introduce new data access components&#10;&#10;The project structure has been updated with the addition of several new components concerning data access. A new file, DataModel.csproj, has been created. Similarly, LockDataAccess.csproj, IDataAccess.csproj, and ILockDataAccess.csproj have been established as part of the Data Access strategy. These changes are further reflected in the update of workspace.xml. Further constituents for data handling like DataLockDBContext.cs and DistributedLock.cs in the DataModel have been added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update workspace.xml and introduce new data access components&#10;&#10;The project structure has been updated with the addition of several new components concerning data access. A new file, DataModel.csproj, has been created. Similarly, LockDataAccess.csproj, IDataAccess.csproj, and ILockDataAccess.csproj have been established as part of the Data Access strategy. These changes are further reflected in the update of workspace.xml. Further constituents for data handling like DataLockDBContext.cs and DistributedLock.cs in the DataModel have been added." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
