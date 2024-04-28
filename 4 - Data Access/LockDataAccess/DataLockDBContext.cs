@@ -35,4 +35,37 @@ public class DataLockDbContext : IDataLockDbContext
         var lck = await connection.QueryFirstOrDefaultAsync<DistributedLock>(SqlOperations.SelectALock, parameters);
         return lck;
     }
+
+    public async Task<bool> AcquireLock(string jobName, string machineName, string ownerId)
+    {
+        await using var connection = new SqlConnection(this.connectionString);
+
+        var parameters = new
+        {
+            key = jobName,
+            machineName,
+            ownerId,
+            acquiredAt = DateTime.UtcNow,
+            lockCount = 1,
+            createdTime = DateTime.UtcNow,
+            modifiedTime = DateTime.UtcNow,
+            lockExpiryTime = DateTime.UtcNow.AddMinutes(10)
+        };
+
+        var cnt = await connection.ExecuteAsync(SqlOperations.AcquireLock, parameters);
+        return cnt > 0;
+    }
+
+    public async Task<bool> ReleaseLock(string jobName, string machineName, string ownerId)
+    {
+        await using var connection = new SqlConnection(this.connectionString);
+
+        var parameters = new
+        {
+            key = jobName, machineName, ownerId
+        };
+
+        var cnt = await connection.ExecuteAsync(SqlOperations.ReleaseLock, parameters);
+        return cnt > 0;
+    }
 }

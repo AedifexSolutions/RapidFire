@@ -41,6 +41,14 @@ public class Program
         app.MapGet("/locks/{key}",
             async (IDataLockDbContext dataLockDbContext, string key) => Results.Ok(await dataLockDbContext.GetLock(key)));
 
+        app.MapGet("/locks/{key}/{machineName}/{ownerId}",
+            async (IDataLockDbContext dataLockDbContext, string key, string machineName, string ownerId) =>
+                await dataLockDbContext.AcquireLock(key, machineName, ownerId));
+
+        app.MapGet("/locks/release/{key}/{machineName}/{ownerId}",
+            async (IDataLockDbContext dataLockDbContext, string key, string machineName, string ownerId) =>
+                await dataLockDbContext.ReleaseLock(key, machineName, ownerId));
+
         app.Run();
     }
 }
