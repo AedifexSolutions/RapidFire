@@ -1,33 +1,38 @@
 namespace LockDataAccess;
 
+using Dapper;
 using DataModel;
+using DTO;
 using ILockDataAccess;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
+using SQL;
 
-public class DataLockDbContext : DbContext, IDataLockDbContext
+public class DataLockDbContext : IDataLockDbContext
 {
-    public DataLockDbContext(DbContextOptions<DataLockDbContext> options) : base(options)
+    private readonly string connectionString;
+
+    public DataLockDbContext(DbConnectionSettings dbconnectionSettings)
     {
+        this.connectionString =
+            $"{dbconnectionSettings.ConnectionString};User Id={dbconnectionSettings.UserId};Password={dbconnectionSettings.Password}";
     }
 
-    public DbSet<DistributedLock> Locks { get; set; }
-
-    public IQueryable<DistributedLock> DistributedLocks => Locks.AsQueryable();
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public async Task<List<DistributedLock>> GetLocks()
     {
-        modelBuilder.Entity<DistributedLock>(entity =>
-            {
-                entity.HasKey(e => e.Key);
-                entity.Property(e => e.Key).HasMaxLength(256).IsRequired();
-                entity.Property(e => e.MachineName).HasMaxLength(256);
-                entity.Property(e => e.OwnerId);
-                entity.Property(e => e.AcquiredAt);
-                entity.Property(e => e.LockExpiryTime);
-                entity.Property(e => e.LockCount);
-                entity.Property(e => e.CreatedTime);
-                entity.Property(e => e.ModifiedTime);
-                entity.ToTable("DistributedLocks");
-            });
+        await using var connection = new SqlConnection(this.connectionString);
+        var locks = (await connection.QueryAsync<DistributedLock>(SqlOperations.SelectAllLocks)).ToList();
+        return locks;
+    }
+
+    public async Task<DistributedLock> GetLock(string key)
+    {
+        await using var connection = new SqlConnection(this.connectionString);
+        var parameters = new
+        {
+            Key = key
+        };
+
+        var lck = await connection.QueryFirstOrDefaultAsync<DistributedLock>(SqlOperations.SelectALock, parameters);
+        return lck;
     }
 }

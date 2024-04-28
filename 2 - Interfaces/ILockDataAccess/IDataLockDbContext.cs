@@ -4,5 +4,7 @@ using DataModel;
 
 public interface IDataLockDbContext
 {
-    IQueryable<DistributedLock> DistributedLocks { get; }
+    Task<List<DistributedLock>> GetLocks();
+
+    Task<DistributedLock> GetLock(string key);
 }

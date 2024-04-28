@@ -1,6 +1,6 @@
-namespace DistributedLock;
-
 using DTO;
+using ILockDataAccess;
+using LockDataAccess;
 
 public class Program
 {
@@ -20,12 +20,8 @@ public class Program
             .AddJsonFile("appsettings.json", false, true)
             .Build();
 
-        var config = configuration.GetSection(nameof(DataAccess)).Get<DataAccess>();
-        var connectionString = $"{config?.ConnectionString};User Id={config?.UserId};Password={config?.Password}";
-
-        // Add Entity Framework DbContext with SQL Server provider
-        // services.AddDbContext<MailDbContext>(options => { options.UseSqlServer(connectionString); }, ServiceLifetime.Singleton)
-        //    .BuildServiceProvider();
+        builder.Services.AddSingleton(configuration.GetSection(nameof(DbConnectionSettings)).Get<DbConnectionSettings>());
+        builder.Services.AddSingleton<IDataLockDbContext, DataLockDbContext>();
 
         var app = builder.Build();
 
@@ -39,6 +35,11 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
+
+        app.MapGet("/locks", async (IDataLockDbContext dataLockDbContext) => Results.Ok(await dataLockDbContext.GetLocks()));
+
+        app.MapGet("/locks/{key}",
+            async (IDataLockDbContext dataLockDbContext, string key) => Results.Ok(await dataLockDbContext.GetLock(key)));
 
         app.Run();
     }
