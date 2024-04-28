@@ -7,7 +7,7 @@ public class SqlOperations
     public static readonly string SelectALock = "Select * from DistributedLocks where [Key] = @Key";
 
     public static readonly string AcquireLock =
-        @"IF EXISTS (SELECT 1 FROM DistributedLocks WHERE [Key] = @key AND LockExpiryTime <= GETDATE())
+        @"IF EXISTS (SELECT 1 FROM DistributedLocks WHERE [Key] = @key AND LockExpiryTime <= GETUTCDATE())
                                                         UPDATE DistributedLocks
                                                         SET MachineName = @machineName, OwnerId = @ownerId, AcquiredAt = @acquiredAt, LockExpiryTime = @lockExpiryTime, LockCount = @lockCount, ModifiedTime = @modifiedTime
                                                         WHERE [Key] = @key

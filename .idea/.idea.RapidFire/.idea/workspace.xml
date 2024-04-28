@@ -12,10 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e911f145-3311-45e0-9174-082bd9c920d9" name="Changes" comment="Refactor data access and update workspace settings&#10;&#10;Reimplemented data access using Dapper and SqlConnection instead of Entity Framework. This included updating files and classes related to data access. Workspace settings were also updated in various sections reflecting the changes. Also, added new methods for lock acquisition and release.">
+    <list default="true" id="e911f145-3311-45e0-9174-082bd9c920d9" name="Changes" comment="Refactor data access and update workspace&#10;&#10;Reimplemented data access using Dapper and SqlConnection instead of Entity Framework which involved updating different files and classes. Also, adjusted workspace settings that reflected the aforementioned changes and added new methods for lock acquisition and release. Updated lock timeout setting in DbConnectionSettings.">
+      <change afterPath="$PROJECT_DIR$/DistributedLockTest/DistributedLockTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DistributedLockTest/DistributedLockTest.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DistributedLockTest/GlobalUsings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RapidFire/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RapidFire/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1 - Services/DistributedLock/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/1 - Services/DistributedLock/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3 - Common/DTO/DbConnectionSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/3 - Common/DTO/DbConnectionSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidFire.sln" beforeDir="false" afterPath="$PROJECT_DIR$/RapidFire.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +55,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0a435cba1b0a422baa186bcf97268a4bc28a00/7e/03a1afae/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2a4dad19c64a4f1a994732eaf2de348e1da00/41/23d2fea4/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fcbf4f8a5ab54375abcfa46e8f5896b531400/cf/6bae1e76/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/fabriziopaino/RiderProjects/RapidFire/1 - Services/DistributedLock/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/4 - Data Access/LockDataAccess/DataLockDBContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/fabriziopaino/RiderProjects/RapidFire/4 - Data Access/LockDataAccess/DataLockDBContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/4 - Data Access/LockDataAccess/SQL/SqlOperations.cs" root0="FORCE_HIGHLIGHTING" />
@@ -203,7 +206,7 @@
       <workItem from="1714117976475" duration="44000" />
       <workItem from="1714197044783" duration="484000" />
       <workItem from="1714241370825" duration="7450000" />
-      <workItem from="1714317741095" duration="3918000" />
+      <workItem from="1714317741095" duration="4544000" />
     </task>
     <task id="LOCAL-00001" summary="Add HealthCheck service, remove WeatherForecast from DistributedLock&#10;&#10;Introduced a new HealthCheck service with its own project file and program script. Removed the WeatherForecast class under DistributedLock service as it was not necessary. The HealthCheck service comes with setup for OpenAPI and Swagger for simple API testing.">
       <option name="closed" value="true" />
@@ -269,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714321401457</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Refactor data access and update workspace&#10;&#10;Reimplemented data access using Dapper and SqlConnection instead of Entity Framework which involved updating different files and classes. Also, adjusted workspace settings that reflected the aforementioned changes and added new methods for lock acquisition and release. Updated lock timeout setting in DbConnectionSettings.">
+      <option name="closed" value="true" />
+      <created>1714321825173</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714321825173</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +311,8 @@
     <MESSAGE value="Update workspace.xml and introduce new data access components&#10;&#10;The project structure has been updated with the addition of several new components concerning data access. A new file, DataModel.csproj, has been created. Similarly, LockDataAccess.csproj, IDataAccess.csproj, and ILockDataAccess.csproj have been established as part of the Data Access strategy. These changes are further reflected in the update of workspace.xml. Further constituents for data handling like DataLockDBContext.cs and DistributedLock.cs in the DataModel have been added." />
     <MESSAGE value="Refactor data access and update workspace settings&#10;&#10;Reengineered data access using Dapper and SqlConnection instead of Entity Framework. This involves renaming data access configuration class, updating CSProj and Workspace files. Additionally, added new SQL Scripts and updated DistributedLock class and IDataLockDbContext interface to fit with new implementations. Updating workspace settings in multiple sections including external source directories, run manager, recent temporary and others also took place." />
     <MESSAGE value="Refactor data access and update workspace settings&#10;&#10;Reimplemented data access using Dapper and SqlConnection instead of Entity Framework. This included updating files and classes related to data access. Workspace settings were also updated in various sections reflecting the changes. Also, added new methods for lock acquisition and release." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor data access and update workspace settings&#10;&#10;Reimplemented data access using Dapper and SqlConnection instead of Entity Framework. This included updating files and classes related to data access. Workspace settings were also updated in various sections reflecting the changes. Also, added new methods for lock acquisition and release." />
+    <MESSAGE value="Refactor data access and update workspace&#10;&#10;Reimplemented data access using Dapper and SqlConnection instead of Entity Framework which involved updating different files and classes. Also, adjusted workspace settings that reflected the aforementioned changes and added new methods for lock acquisition and release. Updated lock timeout setting in DbConnectionSettings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor data access and update workspace&#10;&#10;Reimplemented data access using Dapper and SqlConnection instead of Entity Framework which involved updating different files and classes. Also, adjusted workspace settings that reflected the aforementioned changes and added new methods for lock acquisition and release. Updated lock timeout setting in DbConnectionSettings." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
