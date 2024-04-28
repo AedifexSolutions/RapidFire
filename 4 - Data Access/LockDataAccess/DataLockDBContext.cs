@@ -7,18 +7,12 @@ using ILockDataAccess;
 using Microsoft.Data.SqlClient;
 using SQL;
 
-public class DataLockDbContext : IDataLockDbContext
+public class DataLockDbContext(DbConnectionSettings dbConnectionSettings) : IDataLockDbContext
 {
-    private readonly string connectionString;
-    private readonly int LockTimeoutMin;
+    private readonly string connectionString =
+        $"{dbConnectionSettings.ConnectionString};User Id={dbConnectionSettings.UserId};Password={dbConnectionSettings.Password}";
 
-    public DataLockDbContext(DbConnectionSettings dbconnectionSettings)
-    {
-        this.connectionString =
-            $"{dbconnectionSettings.ConnectionString};User Id={dbconnectionSettings.UserId};Password={dbconnectionSettings.Password}";
-
-        this.LockTimeoutMin = dbconnectionSettings.LockTimeoutMin;
-    }
+    private readonly int LockTimeoutMin = dbConnectionSettings.LockTimeoutMin;
 
     public async Task<List<DistributedLock>> GetLocks()
     {
