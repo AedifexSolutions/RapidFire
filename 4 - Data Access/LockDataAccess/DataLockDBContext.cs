@@ -10,11 +10,14 @@ using SQL;
 public class DataLockDbContext : IDataLockDbContext
 {
     private readonly string connectionString;
+    private readonly int LockTimeoutMin;
 
     public DataLockDbContext(DbConnectionSettings dbconnectionSettings)
     {
         this.connectionString =
             $"{dbconnectionSettings.ConnectionString};User Id={dbconnectionSettings.UserId};Password={dbconnectionSettings.Password}";
+
+        this.LockTimeoutMin = dbconnectionSettings.LockTimeoutMin;
     }
 
     public async Task<List<DistributedLock>> GetLocks()
@@ -49,7 +52,7 @@ public class DataLockDbContext : IDataLockDbContext
             lockCount = 1,
             createdTime = DateTime.UtcNow,
             modifiedTime = DateTime.UtcNow,
-            lockExpiryTime = DateTime.UtcNow.AddMinutes(10)
+            lockExpiryTime = DateTime.UtcNow.AddMinutes(this.LockTimeoutMin)
         };
 
         var cnt = await connection.ExecuteAsync(SqlOperations.AcquireLock, parameters);

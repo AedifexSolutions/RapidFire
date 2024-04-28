@@ -19,4 +19,9 @@ public class DbConnectionSettings
     /// Gets or sets the password for data access.
     /// </summary>
     public required string Password { get; set; }
+
+    /// <summary>
+    ///     Gets or sets the minimum lock timeout period in minutes.
+    /// </summary>
+    public int LockTimeoutMin { get; set; }
 }
