@@ -109,7 +109,7 @@ public class DistributedLockTest
     [Test]
     public async Task TestReleaseLock_FailWhenLockDoesNotExist()
     {
-        this.mockDataLockDbContext.Setup(x => x.GetLock("Job1")).ReturnsAsync((DistributedLock)null);
+        this.mockDataLockDbContext.Setup(x => x.GetLock("Job1")).ReturnsAsync((DistributedLock)null!);
         this.mockDataLockDbContext.Setup(x => x.ReleaseLock("Job1", It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(false);
 
         var result = await this.mockDataLockDbContext.Object.ReleaseLock("Job1", "machineName", "ownerId");
