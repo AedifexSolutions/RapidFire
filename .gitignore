@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+.idea/.idea.RapidFire/.idea/dataSources.local.xml
+.idea/.idea.RapidFire/.idea/dataSources.xml
+.idea/.idea.RapidFire/.idea/dataSources/1c86b2ce-d12e-4d06-9041-ee89bd6cbc74.xml
+.idea/.idea.RapidFire/.idea/workspace.xml
