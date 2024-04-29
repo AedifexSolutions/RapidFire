@@ -1,11 +1,12 @@
-namespace DataModel;
-
-public enum JobStatus
+namespace DataModel
 {
-    Scheduled,
-    Processing,
-    Completed,
-    Failed,
-    Paused,
-    Retry
+    public enum JobStatus
+    {
+        Scheduled,
+        Processing,
+        Completed,
+        Failed,
+        Paused,
+        Retry
+    }
 }

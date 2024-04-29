@@ -1,8 +1,9 @@
-namespace DataModel;
-
-public enum JobType
+namespace DataModel
 {
-    Immediate,
-    Delayed,
-    Recurring
+    public enum JobType
+    {
+        Immediate,
+        Delayed,
+        Recurring
+    }
 }

@@ -1,14 +1,15 @@
-namespace ILockDataAccess;
-
-using DataModel;
-
-public interface IDataLockDbContext
+namespace ILockDataAccess
 {
-    Task<List<DistributedLock>> GetLocks();
+    using DataModel;
 
-    Task<DistributedLock> GetLock(string key);
+    public interface IDataLockDbContext
+    {
+        Task<List<DistributedLock>> GetLocks();
 
-    Task<bool> AcquireLock(string jobName, string machineName, string ownerId);
+        Task<DistributedLock> GetLock(string key);
 
-    Task<bool> ReleaseLock(string jobName, string machineName, string ownerId);
+        Task<bool> AcquireLock(string jobName, string machineName, string ownerId);
+
+        Task<bool> ReleaseLock(string jobName, string machineName, string ownerId);
+    }
 }

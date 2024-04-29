@@ -1,9 +1,10 @@
-namespace DataModel;
-
-public class JobFailHistory
+namespace DataModel
 {
-    public Guid Id { get; set; }
-    public Guid JobId { get; set; }
-    public string ErrorDetails { get; set; }
-    public DateTime FailAt { get; set; }
+    public class JobFailHistory
+    {
+        public Guid Id { get; set; }
+        public Guid JobId { get; set; }
+        public string ErrorDetails { get; set; }
+        public DateTime FailAt { get; set; }
+    }
 }

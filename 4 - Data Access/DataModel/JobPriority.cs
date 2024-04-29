@@ -1,8 +1,9 @@
-namespace DataModel;
-
-public enum JobPriority
+namespace DataModel
 {
-    High,
-    Medium,
-    Low
+    public enum JobPriority
+    {
+        High,
+        Medium,
+        Low
+    }
 }
