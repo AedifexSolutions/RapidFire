@@ -15,55 +15,55 @@ namespace LockDataAccess
         private readonly int LockTimeoutMin = dbConnectionSettings.LockTimeoutMin;
 
         public async Task<List<DistributedLock>> GetLocks()
-    {
-        await using var connection = new SqlConnection(this.connectionString);
-        var locks = (await connection.QueryAsync<DistributedLock>(SqlOperations.SelectAllLocks)).ToList();
-        return locks;
-    }
+        {
+            await using var connection = new SqlConnection(this.connectionString);
+            var locks = (await connection.QueryAsync<DistributedLock>(SqlOperations.SelectAllLocks)).ToList();
+            return locks;
+        }
 
         public async Task<DistributedLock> GetLock(string key)
-    {
-        await using var connection = new SqlConnection(this.connectionString);
-        var parameters = new
         {
-            Key = key
-        };
+            await using var connection = new SqlConnection(this.connectionString);
+            var parameters = new
+            {
+                Key = key
+            };
 
-        var lck = await connection.QueryFirstOrDefaultAsync<DistributedLock>(SqlOperations.SelectALock, parameters);
-        return lck;
-    }
+            var lck = await connection.QueryFirstOrDefaultAsync<DistributedLock>(SqlOperations.SelectALock, parameters);
+            return lck;
+        }
 
         public async Task<bool> AcquireLock(string jobName, string machineName, string ownerId)
-    {
-        await using var connection = new SqlConnection(this.connectionString);
-
-        var parameters = new
         {
-            key = jobName,
-            machineName,
-            ownerId,
-            acquiredAt = DateTime.UtcNow,
-            lockCount = 1,
-            createdTime = DateTime.UtcNow,
-            modifiedTime = DateTime.UtcNow,
-            lockExpiryTime = DateTime.UtcNow.AddMinutes(this.LockTimeoutMin)
-        };
+            await using var connection = new SqlConnection(this.connectionString);
 
-        var cnt = await connection.ExecuteAsync(SqlOperations.AcquireLock, parameters);
-        return cnt > 0;
-    }
+            var parameters = new
+            {
+                key = jobName,
+                machineName,
+                ownerId,
+                acquiredAt = DateTime.UtcNow,
+                lockCount = 1,
+                createdTime = DateTime.UtcNow,
+                modifiedTime = DateTime.UtcNow,
+                lockExpiryTime = DateTime.UtcNow.AddMinutes(this.LockTimeoutMin)
+            };
+
+            var cnt = await connection.ExecuteAsync(SqlOperations.AcquireLock, parameters);
+            return cnt > 0;
+        }
 
         public async Task<bool> ReleaseLock(string jobName, string machineName, string ownerId)
-    {
-        await using var connection = new SqlConnection(this.connectionString);
-
-        var parameters = new
         {
-            key = jobName, machineName, ownerId
-        };
+            await using var connection = new SqlConnection(this.connectionString);
 
-        var cnt = await connection.ExecuteAsync(SqlOperations.ReleaseLock, parameters);
-        return cnt > 0;
-    }
+            var parameters = new
+            {
+                key = jobName, machineName, ownerId
+            };
+
+            var cnt = await connection.ExecuteAsync(SqlOperations.ReleaseLock, parameters);
+            return cnt > 0;
+        }
     }
 }

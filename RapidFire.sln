@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "3 - Common\DTO\DTO.c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedLockTest", "DistributedLockTest\DistributedLockTest.csproj", "{6F795A84-24EB-4DC0-95B6-547D43D3B423}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobDataAccess", "4 - Data Access\JobDataAccess\JobDataAccess.csproj", "{358D201E-644B-4BAC-9E71-6A43DA449FDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,7 @@ Global
 		{A22EDC7E-2E9F-444B-8B26-9CE19A7B6B3F} = {623DD74E-84C2-479D-9412-5BC6384D7AD2}
 		{6B87A79D-6B13-47CF-85CC-323B02C8C132} = {6EDA3A93-CE0C-46C5-A82C-A1339DC776AB}
 		{6F795A84-24EB-4DC0-95B6-547D43D3B423} = {0EFDEE4D-33F6-4B7A-B278-156A18133086}
+		{358D201E-644B-4BAC-9E71-6A43DA449FDE} = {623DD74E-84C2-479D-9412-5BC6384D7AD2}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C5C7881B-45D2-424D-A720-DBE7D0F1C8FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -83,5 +86,9 @@ Global
 		{6F795A84-24EB-4DC0-95B6-547D43D3B423}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F795A84-24EB-4DC0-95B6-547D43D3B423}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F795A84-24EB-4DC0-95B6-547D43D3B423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{358D201E-644B-4BAC-9E71-6A43DA449FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{358D201E-644B-4BAC-9E71-6A43DA449FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{358D201E-644B-4BAC-9E71-6A43DA449FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{358D201E-644B-4BAC-9E71-6A43DA449FDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
