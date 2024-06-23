@@ -2,8 +2,15 @@ using DTO;
 using ILockDataAccess;
 using LockDataAccess;
 
+/// <summary>
+///     Represents the entry point for the program.
+/// </summary>
 public class Program
 {
+    /// <summary>
+    ///     This method is the entry point for the application.
+    /// </summary>
+    /// <param name="args">Command-line arguments passed to the application.</param>
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
