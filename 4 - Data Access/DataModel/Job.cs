@@ -1,42 +1,42 @@
 namespace DataModel
 {
     /// <summary>
-    ///     Represents a job.
+    /// Represents a job.
     /// </summary>
     public class Job
     {
         /// <summary>
-        ///     Represents the unique identifier of a job.
+        /// Represents the unique identifier of a job.
         /// </summary>
         public Guid Id { get; set; }
 
         /// <summary>
-        ///     Represents a job type name.
+        /// Represents a job type name.
         /// </summary>
         public string Name { get; set; }
 
-        /// Group
+        /// <summary>
         /// Represents the group of a job.
-        /// /
+        /// </summary>
         public string Group { get; set; }
 
         /// <summary>
-        ///     Represents a job in the system.
+        /// Represents a job in the system.
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        ///     Gets or sets the method name associated with the job.
+        /// Gets or sets the method name associated with the job.
         /// </summary>
         public string MethodName { get; set; }
 
         /// <summary>
-        ///     Represents the code to execute by the job.
+        /// Represents the code to execute by the job.
         /// </summary>
         public string Code { get; set; }
 
         /// <summary>
-        ///     Represents the job arguments for a job.
+        /// Represents the job arguments for a job.
         /// </summary>
         public string JobArgs { get; set; }
 
